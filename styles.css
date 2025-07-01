@@ -1,0 +1,161 @@
+header {
+    position: relative;
+    background-image: url('https://i.pinimg.com/736x/ec/90/1e/ec901e798a0c8064b92fe46339bd3e58.jpg'); /* Cambia por tu URL de imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+    background-position: center; /* Centra la imagen */
+    height: 150px; /* Altura del header */
+    display: flex; /* Para centrar el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    color: #6c63ff; /* Texto blanco para contrastar */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
+    z-index: 1;
+}
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(237, 241, 245, 0.918); /* overlay oscuro */
+    z-index: 2;
+    pointer-events: none;
+}
+header > * {
+    position: relative;
+    z-index: 3;
+}
+
+
+
+/* Colores neón personalizados para Tailwind JIT */
+:root {
+    --neon-blue: hsl(236, 100%, 50%);
+    --neon-pink: #3519d6;
+    --neon-green: #2a36db;
+    --neon-purple: #BF00FF;
+    --neon-yellow: #F0FF00;
+}
+
+/* Estilos base para el modo oscuro por defecto */
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #1a202c; /* gray-900 */
+    color: #e2e8f0; /* gray-100 */
+}
+
+/* Modo claro */
+body.light-mode {
+    background-color: #ffffff; /* white */
+    color: #2d3748; /* gray-800 */
+}
+
+/* Efectos neón */
+.neon-border {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
+}
+
+.neon-text {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
+
+.shadow-neon-blue {
+    box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+.animate-pulse-neon {
+    animation: pulse-neon 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+@keyframes pulse-neon {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+    }
+    50% {
+        box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+    }
+}
+
+/* Configuración de Tailwind JIT para permitir valores arbitrarios para los colores neón */
+.text-neon-blue { color: var(--neon-blue); }
+.border-neon-blue { border-color: var(--neon-blue); }
+.bg-neon-blue { background-color: var(--neon-blue); }
+.shadow-neon-blue { box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue), 0 0 20px var(--neon-blue); }
+
+/* Ajustes específicos para el modo oscuro/claro */
+body.dark-mode .article-card {
+    background-color: #2d3748; /* gray-800 */
+    border: 2px solid rgba(0, 240, 255, 0.5); /* neon-blue con opacidad */
+}
+body.light-mode .article-card {
+    background-color: #f7fafc; /* gray-50 */
+    border: 1px solid #cbd5e0; /* gray-200 */
+}
+
+body.dark-mode .post-editor input,
+body.dark-mode .post-editor textarea {
+    background-color: #756859; /* gray-700 */
+    border-color: var(--neon-blue);
+    color: #0b08df; /* gray-100 */
+}
+body.light-mode .post-editor input,
+body.light-mode .post-editor textarea {
+    background-color: #ffffff; /* white */
+    border-color: #cbd5e0; /* gray-300 */
+    color: #2d3748; /* gray-800 */
+}
+
+/* Estilos de prosa genéricos para el contenido del artículo */
+.prose p, .prose h1, .prose h2, .prose h3, .prose ul, .prose ol, .prose blockquote {
+    max-width: 100%; /* Asegura que el contenido se adapte */
+}
+.prose h1 { color: var(--neon-blue); }
+.prose h2 { color: var(--neon-blue); }
+.prose h3 { color: var(--neon-blue); }
+.prose a { color: var(--neon-blue); text-decoration: underline; }
+.prose img, .prose iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Relación de aspecto responsiva para videos */
+.aspect-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+.aspect-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body.dark-mode nav button {
+    background: #232946;
+    color: #e2e8f0;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+}
+body.dark-mode nav button:hover {
+    background: var(--neon-blue);
+    color: #232946;
+}
+
+body.dark-mode .prose h1,
+body.dark-mode .prose h2,
+body.dark-mode .prose h3 {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue), 0 0 2px #000;
+}
+
+
